@@ -7,4 +7,5 @@ public interface InterfaceBinaryTree {
     String toStringPreOrder();
     String toStringInOrder();
     String toStringPostOrder();
+    boolean searchValue(int value);
 }

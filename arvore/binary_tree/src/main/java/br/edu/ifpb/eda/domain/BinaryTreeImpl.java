@@ -52,6 +52,15 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
         return sb.toString().trim();
     }
 
+    @Override
+    public boolean searchValue(int value) {
+        if (value == this.root.getValue()) {
+            return  true;
+        }
+        return searchValueRecursive(this.root, value);
+    }
+
+
     private void addRecursive(Node currentNode, int value) {
         Node newNode = new Node(value);
 
@@ -109,6 +118,18 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
             toStringPostOrderRecursive(currentNode.getLeft(), sb);
             toStringPostOrderRecursive(currentNode.getRight(), sb);
             sb.append(currentNode.getValue()).append(" ");
+        }
+    }
+
+    private boolean searchValueRecursive(Node currentNode, int value) {
+        if (currentNode == null) { return  false; }
+
+        if (currentNode.getValue() == value) { return  true; }
+
+        if (value < currentNode.getValue()) {
+            return searchValueRecursive(currentNode.getLeft(), value);
+        } else {
+            return searchValueRecursive(currentNode.getRight(), value);
         }
     }
 

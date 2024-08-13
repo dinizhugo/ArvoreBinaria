@@ -17,6 +17,7 @@ public class Main {
             minhaLista.add(number);
             System.out.print(number + " ");
         }
+
         System.out.println();
         System.out.println("========");
 
@@ -30,5 +31,6 @@ public class Main {
         System.out.println(minhaLista.toStringPostOrder());
         System.out.println("=============");
 
+        System.out.println(minhaLista.searchValue(1));
     }
 }
