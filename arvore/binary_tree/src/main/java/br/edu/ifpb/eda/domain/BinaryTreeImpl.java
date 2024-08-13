@@ -8,7 +8,7 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
     @Override
     public void add(int value) {
         if (this.root == null) {
-            new Node(value);
+            this.root = new Node(value);
         } else {
             addRecursive(this.root, value);
         }
@@ -35,7 +35,7 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
     public String toStringPreOrder() {
         StringBuilder sb = new StringBuilder();
         toStringPreOrderRecursive(this.root, sb);
-        return sb.toString();
+        return sb.toString().trim();
     }
 
     @Override
