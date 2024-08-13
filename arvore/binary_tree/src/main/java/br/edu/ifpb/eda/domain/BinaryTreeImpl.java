@@ -47,7 +47,9 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
 
     @Override
     public String toStringPostOrder() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        toStringPostOrderRecursive(this.root, sb);
+        return sb.toString().trim();
     }
 
     private void addRecursive(Node currentNode, int value) {
@@ -99,6 +101,14 @@ public class BinaryTreeImpl implements InterfaceBinaryTree {
             toStringInOrderRecursive(currentNode.getLeft(), sb);
             sb.append(currentNode.getValue()).append(" ");
             toStringInOrderRecursive(currentNode.getRight(), sb);
+        }
+    }
+
+    private void toStringPostOrderRecursive(Node currentNode, StringBuilder sb) {
+        if (currentNode != null) {
+            toStringPostOrderRecursive(currentNode.getLeft(), sb);
+            toStringPostOrderRecursive(currentNode.getRight(), sb);
+            sb.append(currentNode.getValue()).append(" ");
         }
     }
 
